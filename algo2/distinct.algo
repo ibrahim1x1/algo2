@@ -1,0 +1,30 @@
+ALGORITHM CommunHash
+VAR    
+        t1 : ARRAY_OF INTEGER[] := [12,13,6,10];
+        t2 : ARRAY_OF INTEGER[] := [13,10,16,15];
+        h : HASH_TABLE<INTEGER, INTEGER>
+BEGIN
+    FOR i FROM 1 TO t1.length STEP 1 DO
+        h.insert(t1[i],¹)
+    END_FOR
+    
+    FOR i FROM 1 TO t2.length STEP 1 DO
+        IF (h.lookup (t2[i]) = true) THEN
+            h.insert(t2[i],2)
+        ELSE
+            h.insert(t2[i],1)
+        END_IF
+    END_FOR
+    
+    FOR i FROM 1 TO t1.length STEP 1 DO
+        IF (h.get(t1[1]) = 1) THEN
+            sum = sum + t1[i]
+        END IF
+    END FOR
+
+        FOR i FROM 1 TO t2.length STEP 1 DO
+        IF (h.get(t2[i]) = 1) THEN
+            sum = sum + t2[i]
+        END IF
+    END FOR
+END
